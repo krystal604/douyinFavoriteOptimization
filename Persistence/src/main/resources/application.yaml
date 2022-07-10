@@ -1,0 +1,24 @@
+server:
+  port: 8081
+spring:
+  dubbo:
+    application:
+      name: service-provider
+    base-package: com # dubbo服务发布者所在的包
+    registry:
+      address: 101.42.222.118 # zookeeper注册中心的地址
+      port: 2181       # zookeeper注册中心的端口
+      protocol: zookeeper
+      register: true
+    protocol:
+      name: dubbo
+      port: 20882
+      accesslog: true
+    provider:
+      retries: 1
+      delay: -1
+
+    consumer:
+      timeout: 1000
+      check: false  # 服务启动时检查被调用服务是否可用
+      retries: 2    # 服务调用重试次数

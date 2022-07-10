@@ -1,0 +1,19 @@
+server:
+  port: 8083
+spring:
+  dubbo:
+    application:
+      name: service-provider
+    base-package: com # dubbo服务发布者所在的包
+    registry:
+      address: 101.42.222.118 # zookeeper注册中心的地址
+      port: 2181       # zookeeper注册中心的端口
+      protocol: zookeeper
+      register: true
+    protocol:
+      name: dubbo
+      port: 20881
+      accesslog: true
+    provider:
+      retries: 1
+      delay: -1

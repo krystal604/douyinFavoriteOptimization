@@ -1,0 +1,33 @@
+server:
+  port: 8082
+spring:
+  dubbo:
+    application:
+      name: service-consumer
+    base-package: com  # dubbo服务调用者所在的包
+    registry:
+      address: 101.42.222.118  # zookeeper注册中心的地址
+      port: 2181              # zookeeper注册中心的端口
+      protocol: zookeeper
+      subscribe: true
+    protocol:
+      name: dubbo
+      host: 101.42.222.118
+    consumer:
+      timeout: 1000
+      check: false  # 服务启动时检查被调用服务是否可用
+      retries: 2    # 服务调用重试次数
+
+
+
+  rabbitmq:
+    host: 47.93.2.242
+    port: 5672
+    username: admin
+    password: 123456
+    #虚拟host 可以不设置,使用server默认host
+    virtual-host: douyin
+#    listener:
+#      simple:
+#        acknowledge-mode: auto #自动Ack
+  #        acknowledge-mode: manual #开启手动Ack
